@@ -11,22 +11,14 @@
 (setq ring-bell-function 'ignore)
 
 ;; ido mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+(require 'ido)
+(ido-mode t)
 
 ;; color theme
 (load-theme 'misterioso t)
 
 ;; paren match highlighting
 (show-paren-mode 1)
-
-;; paredit
-(defun turn-on-paredit () (paredit-mode 1))
-(add-hook 'clojure-mode-hook 'turn-on-paredit)
-
-;; rainbow brackets
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 ;; ======================================================
 
@@ -52,9 +44,13 @@
 (when (not (package-installed-p 'paredit))
   (package-install 'paredit))
 
+(defun turn-on-paredit () (paredit-mode 1))
+(add-hook 'clojure-mode-hook 'turn-on-paredit)
+
 ;; rainbow brackets
 (when (not (package-installed-p 'rainbow-delimiters))
   (package-install 'rainbow-delimiters))
 
-;; ======================================================
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
+;; ======================================================
