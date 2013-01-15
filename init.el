@@ -10,6 +10,9 @@
 ;; make less noise
 (setq ring-bell-function 'ignore)
 
+;; Enable copy & paste between emacs and other apps.
+(setq x-select-enable-clipboard t)
+
 ;; ido mode
 (require 'ido)
 (ido-mode t)
@@ -19,6 +22,11 @@
 
 ;; paren match highlighting
 (show-paren-mode 1)
+
+;; Set tab width
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 2)
+(setq c-basic-indent 2)
 
 ;; ======================================================
 
