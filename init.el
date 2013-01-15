@@ -13,6 +13,9 @@
 ;; Enable copy & paste between emacs and other apps.
 (setq x-select-enable-clipboard t)
 
+;; Don't wrap long lines.
+(toggle-truncate-lines)
+
 ;; ido mode
 (require 'ido)
 (ido-mode t)
