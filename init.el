@@ -51,13 +51,6 @@
 (add-hook 'nrepl-interaction-mode-hook
   'nrepl-turn-on-eldoc-mode)
 
-;; paredit
-(when (not (package-installed-p 'paredit))
-  (package-install 'paredit))
-
-(defun turn-on-paredit () (paredit-mode 1))
-(add-hook 'clojure-mode-hook 'turn-on-paredit)
-
 ;; rainbow brackets
 (when (not (package-installed-p 'rainbow-delimiters))
   (package-install 'rainbow-delimiters))
