@@ -14,7 +14,7 @@
 (setq x-select-enable-clipboard t)
 
 ;; Don't wrap long lines.
-(toggle-truncate-lines)
+(set-default 'truncate-lines t)
 
 ;; ido mode
 (require 'ido)
