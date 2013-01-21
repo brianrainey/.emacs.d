@@ -13,6 +13,12 @@
 ;; Enable copy & paste between emacs and other apps.
 (setq x-select-enable-clipboard t)
 
+;; Save backup files to temp directory
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))
+
 ;; Don't wrap long lines.
 (set-default 'truncate-lines t)
 
