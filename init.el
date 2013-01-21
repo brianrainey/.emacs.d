@@ -16,6 +16,9 @@
 ;; Don't wrap long lines.
 (set-default 'truncate-lines t)
 
+;; Hide file menu
+(menu-bar-mode -1)
+
 ;; ido mode
 (require 'ido)
 (ido-mode t)
