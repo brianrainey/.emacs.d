@@ -13,6 +13,10 @@
 ;; Enable copy & paste between emacs and other apps.
 (setq x-select-enable-clipboard t)
 
+;; Display line numbers
+(global-linum-mode t) 
+(setq linum-format "  %d ")
+
 ;; Save backup files to temp directory
 (setq backup-directory-alist
   `((".*" . ,temporary-file-directory)))
@@ -31,6 +35,9 @@
 
 ;; color theme
 (load-theme 'misterioso t)
+
+;; default font
+(set-default-font "Monaco-14")
 
 ;; paren match highlighting
 (show-paren-mode 1)
