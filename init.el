@@ -34,10 +34,10 @@
 (ido-mode t)
 
 ;; color theme
-(load-theme 'misterioso t)
+(load-theme 'dichromacy t)
 
 ;; default font
-(set-default-font "Monaco-14")
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9"))
 
 ;; paren match highlighting
 (show-paren-mode 1)
@@ -47,30 +47,8 @@
 (setq default-tab-width 2)
 (setq c-basic-indent 2)
 
-;; ======================================================
-
 ;; add marmalade package archives
 (require 'package)
 (add-to-list 'package-archives
   '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
-
-;; clojure mode
-(when (not (package-installed-p 'clojure-mode))
-  (package-install 'clojure-mode))
-
-;; nrepl
-(when (not (package-installed-p 'nrepl))
-  (package-install 'nrepl))
-
-;; eldoc mode for clojure / nrepl
-(add-hook 'nrepl-interaction-mode-hook
-  'nrepl-turn-on-eldoc-mode)
-
-;; rainbow brackets
-(when (not (package-installed-p 'rainbow-delimiters))
-  (package-install 'rainbow-delimiters))
-
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-
-;; ======================================================
