@@ -34,10 +34,12 @@
 (ido-mode t)
 
 ;; color theme
-(load-theme 'dichromacy t)
+(if (window-system)
+    (load-theme 'dichromacy t))
 
 ;; default font
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9"))
+(if window-system 
+    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
 
 ;; paren match highlighting
 (show-paren-mode 1)
