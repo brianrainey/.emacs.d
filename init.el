@@ -44,7 +44,7 @@
 
 ;; Linux only settings
 (when (eq window-system 'x)
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10")))
 
 ;; Windows only settings
 (when (eq window-system 'w32)
