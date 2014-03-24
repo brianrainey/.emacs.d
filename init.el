@@ -3,10 +3,6 @@
 ;; disable splash screen
 (setq inhibit-splash-screen t)
 
-;; turn off toolbar in gui
-(if window-system
-    (tool-bar-mode 0))
-
 ;; make less noise
 (setq ring-bell-function 'ignore)
 
@@ -33,22 +29,6 @@
 (require 'ido)
 (ido-mode t)
 
-;; color theme
-(if (window-system)
-    (load-theme 'dichromacy t))
-
-;; Linux font
-(if (eq window-system 'x)
-    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
-
-;; Windows font
-(if (eq window-system 'w32)
-    (set-face-font 'default "Consolas-10"))
-
-;; OSX font
-(if (eq window-system 'ns)
-    '())
-
 ;; paren match highlighting
 (show-paren-mode 1)
 
@@ -56,6 +36,23 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
 (setq c-basic-indent 2)
+
+;; GUI only settings
+(when window-system
+    (tool-bar-mode 0)
+    (load-theme 'dichromacy t))
+
+;; Linux only settings
+(when (eq window-system 'x)
+    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
+
+;; Windows only settings
+(when (eq window-system 'w32)
+    (set-face-font 'default "Consolas-10"))
+
+;; OSX only settings
+(when (eq window-system 'ns)
+    '())
 
 ;; add marmalade package archives
 (require 'package)
