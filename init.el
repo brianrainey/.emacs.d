@@ -37,9 +37,17 @@
 (if (window-system)
     (load-theme 'dichromacy t))
 
-;; default font
-(if window-system 
+;; Linux font
+(if (eq window-system 'x)
     (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
+
+;; Windows font
+(if (eq window-system 'w32)
+    (set-face-font 'default "Consolas-10"))
+
+;; OSX font
+(if (eq window-system 'ns)
+    '())
 
 ;; paren match highlighting
 (show-paren-mode 1)
