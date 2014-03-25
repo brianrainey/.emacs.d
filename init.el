@@ -44,7 +44,8 @@
 
 ;; Linux only settings
 (when (eq window-system 'x)
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10")))
+  (add-to-list 'default-frame-alist 
+               '(font . "DejaVu Sans Mono-10")))
 
 ;; Windows only settings
 (when (eq window-system 'w32)
@@ -52,7 +53,7 @@
 
 ;; OSX only settings
 (when (eq window-system 'ns)
-  '())
+  (set-default-font "Menlo-13"))
 
 ;; Add marmalade package archives
 (require 'package)
