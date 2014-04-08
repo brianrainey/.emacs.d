@@ -1,0 +1,18 @@
+## Moving ##
+
+## Selecting ##
+
+## Registers ##
+
+`C-x r SPC` marks the position in a buffer. Jump back to that position
+with `C-x r j`
+
+`C-x r s` saves text to a register. `C-x r i` inserts it.
+
+`list-registers` does what it says. It shows marks and text.
+
+## Bookmarks ##
+
+`C-x r m` set's a bookmark. It's like a more persistent version of the
+above. List bookmarks with `C-x r l`, or go directly to one with 
+`C-x r b`.
