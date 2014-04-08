@@ -1,6 +1,12 @@
+
 ## Moving ##
 
 ## Selecting ##
+
+`M-h` for current paragraph.
+`C-x h` for whole buffer.
+`C-SPC` to set mark.
+`C-x C-x` to move the mark to the opposite end of the selection.
 
 ## Registers ##
 
