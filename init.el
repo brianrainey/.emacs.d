@@ -55,8 +55,26 @@
 (when (eq window-system 'ns)
   (set-default-font "Menlo-13"))
 
+;; Terminal only settings
+(when (not window-system)
+  (load-theme 'misterioso t))
+
 ;; Add marmalade package archives
 (require 'package)
 (add-to-list 'package-archives
   '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+;; list and install some packages
+(defvar my-packages '(clojure-mode
+                      nrepl
+                      paredit))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+;; Clojure editing (including paredit)
+(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(add-hook 'clojure-mode-hook 'paredit-mode)
