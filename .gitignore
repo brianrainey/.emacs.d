@@ -3,3 +3,4 @@ repl-port
 auto-save-list/*
 elpa/*
 url/*
+eshell/*
