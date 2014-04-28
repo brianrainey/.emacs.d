@@ -1,11 +1,15 @@
 
 ## Moving ##
+`M-}` and `M-{` for moving between paragraphs.
 
 ## Selecting ##
 
 `M-h` for current paragraph.
+
 `C-x h` for whole buffer.
+
 `C-SPC` to set mark.
+
 `C-x C-x` to move the mark to the opposite end of the selection.
 
 ## Registers ##
@@ -19,6 +23,6 @@ with `C-x r j`
 
 ## Bookmarks ##
 
-`C-x r m` set's a bookmark. It's like a more persistent version of the
-above. List bookmarks with `C-x r l`, or go directly to one with 
+`C-x r m` sets a bookmark. It's like a more persistent version of the
+above. List bookmarks with `C-x r l`, or go directly to one with
 `C-x r b`.
