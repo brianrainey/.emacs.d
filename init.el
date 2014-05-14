@@ -68,7 +68,8 @@
 ;; list and install some packages
 (defvar my-packages '(clojure-mode
                       nrepl
-                      paredit))
+                      paredit
+                      markdown-mode))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -78,3 +79,8 @@
 (autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
+
+;; Markdown editing
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
