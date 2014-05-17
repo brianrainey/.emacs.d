@@ -32,6 +32,9 @@
 ;; Paren match highlighting
 (show-paren-mode 1)
 
+;; Highlight current line
+(global-hl-line-mode 1)
+
 ;; Set tab width
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
