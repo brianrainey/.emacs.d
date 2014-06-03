@@ -58,32 +58,19 @@
 (when (eq window-system 'ns)
   (set-default-font "Menlo-13"))
 
-;; Terminal only settings
-(when (not window-system)
-  (load-theme 'misterioso t))
-
-;; Add marmalade package archives
-(require 'package)
-(add-to-list 'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
-;; list and install some packages
-(defvar my-packages '(clojure-mode
-                      nrepl
-                      paredit
-                      markdown-mode))
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+;; Keep packages in their own folder
+(add-to-list 'load-path "~/.emacs.d/packages")
 
 ;; Clojure editing (including paredit)
-(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
+;; (git clone https://github.com/clojure-emacs/clojure-mode/)
+;; (git clone http://mumble.net/~campbell/git/paredit.git/)
+(autoload 'clojure-mode "clojure-mode/clojure-mode" "A major mode for Clojure" t)
+(autoload 'paredit-mode "paredit/paredit" "Minor mode for S-expressions" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
 ;; Markdown editing
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+;; (http://jblevins.org/projects/markdown-mode/markdown-mode.el)
+(autoload 'markdown-mode "markdown-mode/markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
