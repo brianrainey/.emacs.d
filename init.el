@@ -58,6 +58,10 @@
 (when (eq window-system 'ns)
   (set-default-font "Menlo-13"))
 
+;; Terminal only settings
+(when (eq window-system nil)
+  (load-theme 'misterioso t))
+
 ;; Keep packages in their own folder
 (add-to-list 'load-path "~/.emacs.d/packages")
 
