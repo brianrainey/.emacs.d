@@ -32,9 +32,6 @@
 ;; Paren match highlighting
 (show-paren-mode 1)
 
-;; Highlight current line
-(global-hl-line-mode 1)
-
 ;; Set tab width
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
@@ -60,21 +57,32 @@
 
 ;; Terminal only settings
 (when (eq window-system nil)
-  (load-theme 'misterioso t))
+  (load-theme 'tango-dark t))
 
 ;; Keep packages in their own folder
 (add-to-list 'load-path "~/.emacs.d/packages")
 
-;; Clojure editing (including paredit)
-;; (git clone https://github.com/clojure-emacs/clojure-mode/)
-;; (git clone http://mumble.net/~campbell/git/paredit.git/)
-(autoload 'clojure-mode "clojure-mode/clojure-mode" "A major mode for Clojure" t)
-(autoload 'paredit-mode "paredit/paredit" "Minor mode for S-expressions" t)
+;; dash.el
+(add-to-list 'load-path "~/.emacs.d/packages/dash.el")
+
+;; pkg-info
+(add-to-list 'load-path "~/.emacs.d/packages/pkg-info.el")
+
+;; paredit
+(add-to-list 'load-path "~/.emacs.d/packages/paredit")
+(autoload 'paredit-mode "paredit" "Minor mode for S-expressions" t)
+
+;; clojure-mode 
+(add-to-list 'load-path "~/.emacs.d/packages/clojure-mode")
+(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
-;; Markdown editing
-;; (http://jblevins.org/projects/markdown-mode/markdown-mode.el)
+;; cider
+(add-to-list 'load-path "~/.emacs.d/packages/cider")
+(require 'cider)
+
+;; markdown-mode
 (autoload 'markdown-mode "markdown-mode/markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
