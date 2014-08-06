@@ -59,6 +59,9 @@
 (when (eq window-system nil)
   (load-theme 'tango-dark t))
 
+;; Unset C-\ ... I want that for tmux
+(global-unset-key (kbd "C-\\"))
+
 ;; Keep packages in their own folder
 (add-to-list 'load-path "~/.emacs.d/packages")
 
