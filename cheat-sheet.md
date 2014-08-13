@@ -1,6 +1,8 @@
 
 ## Moving ##
+
 `M-}` and `M-{` for moving between paragraphs.
+
 
 ## Selecting ##
 
@@ -12,6 +14,7 @@
 
 `C-x C-x` to move the mark to the opposite end of the selection.
 
+
 ## Registers ##
 
 `C-x r SPC` marks the position in a buffer. Jump back to that position
@@ -20,6 +23,7 @@ with `C-x r j`
 `C-x r s` saves text to a register. `C-x r i` inserts it.
 
 `list-registers` does what it says. It shows marks and text.
+
 
 ## Bookmarks ##
 

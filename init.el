@@ -59,6 +59,19 @@
 (when (eq window-system nil)
   (load-theme 'tango-dark t))
 
+;; Function that copies path of current buffer to clipboard
+(defun copy-path ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
+
 ;; Keep packages in their own folder
 (add-to-list 'load-path "~/.emacs.d/packages")
 
