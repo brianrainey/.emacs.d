@@ -49,6 +49,7 @@
 
 ;; Windows only settings
 (when (eq window-system 'w32)
+  (server-start)
   (set-face-font 'default "Consolas-10"))
 
 ;; OSX only settings
@@ -63,14 +64,9 @@
 (defun copy-path ()
   "Put the current file name on the clipboard"
   (interactive)
-  (let ((filename (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
-    (when filename
-      (with-temp-buffer
-        (insert filename)
-        (clipboard-kill-region (point-min) (point-max)))
-      (message filename))))
+  (when buffer-file-name
+    (kill-new buffer-file-name)
+    (message "Copied to clipboard.")))
 
 ;; Keep packages in their own folder
 (add-to-list 'load-path "~/.emacs.d/packages")
