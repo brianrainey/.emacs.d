@@ -60,6 +60,9 @@
 (when (eq window-system nil)
   (load-theme 'tango-dark t))
 
+;; Unset C-\ ... I want that for tmux
+(global-unset-key (kbd "C-\\"))
+
 ;; Function that copies path of current buffer to clipboard
 (defun copy-path ()
   "Put the current file name on the clipboard"
