@@ -65,14 +65,14 @@
 
 ;; Function that copies path of current buffer to clipboard
 (defun copy-path ()
-  "Put the current file name on the clipboard"
+  "Copies the current file's full path to the clipboard."
   (interactive)
   (when buffer-file-name
     (kill-new buffer-file-name)
-    (message "Copied to clipboard.")))
+    (message buffer-file-name)))
 
-;; Keep packages in their own folder
-(add-to-list 'load-path "~/.emacs.d/packages")
+;; Give it a key binding
+(global-set-key (kbd "C-c C-p") 'copy-path)
 
 ;; dash.el
 (add-to-list 'load-path "~/.emacs.d/packages/dash.el")
