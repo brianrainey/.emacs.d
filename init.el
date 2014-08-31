@@ -58,7 +58,7 @@
 
 ;; Terminal only settings
 (when (eq window-system nil)
-  (load-theme 'tango-dark t))
+  (load-theme 'misterioso t))
 
 ;; Unset C-\ ... I want that for tmux
 (global-unset-key (kbd "C-\\"))
