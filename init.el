@@ -36,6 +36,7 @@
 (setq-default indent-tabs-mode nil)
 (setq default-tab-width 2)
 (setq c-basic-indent 2)
+(setq js-indent-level 2)
 
 ;; GUI only settings
 (when window-system
