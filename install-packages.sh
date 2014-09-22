@@ -24,4 +24,8 @@ mkdir markdown-mode
 cd markdown-mode
 wget http://jblevins.org/projects/markdown-mode/markdown-mode.el
 
+# p4.el
+mkdir p4.el
+cd p4.el
+wget https://raw.githubusercontent.com/gareth-rees/p4.el/master/p4.el
 

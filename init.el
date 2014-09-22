@@ -102,3 +102,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; p4.el
+(add-to-list 'load-path "~/.emacs.d/packages/p4.el")
+(require 'p4)
