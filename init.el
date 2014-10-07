@@ -76,32 +76,8 @@
 (global-unset-key (kbd "C-c C-p"))
 (global-set-key (kbd "C-c C-p") 'copy-path)
 
-;; dash.el
-(add-to-list 'load-path "~/.emacs.d/packages/dash.el")
+;; Melpa package repository
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
 
-;; pkg-info
-(add-to-list 'load-path "~/.emacs.d/packages/pkg-info.el")
-
-;; paredit
-(add-to-list 'load-path "~/.emacs.d/packages/paredit")
-(autoload 'paredit-mode "paredit" "Minor mode for S-expressions" t)
-
-;; clojure-mode 
-(add-to-list 'load-path "~/.emacs.d/packages/clojure-mode")
-(autoload 'clojure-mode "clojure-mode" "A major mode for Clojure" t)
-(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-(add-hook 'clojure-mode-hook 'paredit-mode)
-
-;; cider
-(add-to-list 'load-path "~/.emacs.d/packages/cider")
-(require 'cider)
-
-;; markdown-mode
-(add-to-list 'load-path "~/.emacs.d/packages/markdown-mode")
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; p4.el
-(add-to-list 'load-path "~/.emacs.d/packages/p4.el")
-(require 'p4)
