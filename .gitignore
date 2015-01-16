@@ -7,3 +7,5 @@ eshell/*
 packages/*
 server/*
 %backup%~
+projectile-bookmarks.eld
+projectile.cache

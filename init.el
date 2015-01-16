@@ -51,7 +51,11 @@
 ;; Windows only settings
 (when (eq window-system 'w32)
   (server-start)
-  (set-face-font 'default "Consolas-10"))
+  (set-face-font 'default "Consolas-10")
+  (setenv "PATH"
+          (concat   
+           "C:\\MinGW\\msys\\1.0\\bin;"
+           (getenv "PATH"))))
 
 ;; OSX only settings
 (when (eq window-system 'ns)
@@ -61,9 +65,6 @@
 (when (eq window-system nil)
   (load-theme 'misterioso t))
 
-;; Unset C-\ ... I want that for tmux
-(global-unset-key (kbd "C-\\"))
-
 ;; Function that copies path of current buffer to clipboard
 (defun copy-path ()
   "Copies the current file's full path to the clipboard."
@@ -72,12 +73,11 @@
     (kill-new buffer-file-name)
     (message buffer-file-name)))
 
-;; Give it a key binding
-(global-unset-key (kbd "C-c C-p"))
-(global-set-key (kbd "C-c C-p") 'copy-path)
-
 ;; Melpa package repository
 (require 'package)
 (add-to-list 'package-archives
   '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+
+;; Projectile support for projects
+(projectile-global-mode)
 
