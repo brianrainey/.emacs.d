@@ -10,7 +10,7 @@
 (setq x-select-enable-clipboard t)
 
 ;; Display line numbers
-(global-linum-mode t) 
+(global-linum-mode t)
 (setq linum-format "  %d ")
 
 ;; Save backup files to temp directory
@@ -38,6 +38,9 @@
 (setq c-basic-indent 2)
 (setq js-indent-level 2)
 
+;; Remove extra whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; GUI only settings
 (when window-system
   (tool-bar-mode 0)
@@ -45,7 +48,7 @@
 
 ;; Linux only settings
 (when (eq window-system 'x)
-  (add-to-list 'default-frame-alist 
+  (add-to-list 'default-frame-alist
                '(font . "DejaVu Sans Mono-10")))
 
 ;; Windows only settings
@@ -53,7 +56,7 @@
   (server-start)
   (set-face-font 'default "Consolas-10")
   (setenv "PATH"
-          (concat   
+          (concat
            "C:\\MinGW\\msys\\1.0\\bin;"
            (getenv "PATH"))))
 
@@ -82,4 +85,3 @@
 ;; Projectile support for projects
 (require 'projectile)
 (projectile-global-mode)
-

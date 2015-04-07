@@ -9,3 +9,5 @@ server/*
 %backup%~
 projectile-bookmarks.eld
 projectile.cache
+bookmarks
+ido.last
