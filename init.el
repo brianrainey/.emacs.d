@@ -85,3 +85,7 @@
 ;; Projectile support for projects
 (require 'projectile)
 (projectile-global-mode)
+
+;; Helm completion for Projectile
+(helm-projectile-on)
+(helm-autoresize-mode)
