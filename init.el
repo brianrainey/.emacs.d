@@ -68,6 +68,9 @@
 (when (eq window-system nil)
   (load-theme 'misterioso t))
 
+;; Treat ActionScript the same as JavaScript
+(add-to-list 'auto-mode-alist '("\\.as\\'" . javascript-mode))
+
 ;; Function that copies path of current buffer to clipboard
 (defun copy-path ()
   "Copies the current file's full path to the clipboard."
