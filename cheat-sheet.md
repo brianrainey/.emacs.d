@@ -3,6 +3,9 @@
 
 `M-}` and `M-{` for moving between paragraphs.
 
+`M-m` to go to the first character in a line (compare to `C-a`)
+
+`C-M-f`, `C-M-b` to match parentheses.
 
 ## Selecting ##
 
