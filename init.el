@@ -71,6 +71,9 @@
 ;; Treat ActionScript the same as JavaScript
 (add-to-list 'auto-mode-alist '("\\.as\\'" . javascript-mode))
 
+;; Markdown mode
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; Function that copies path of current buffer to clipboard
 (defun copy-path ()
   "Copies the current file's full path to the clipboard."
