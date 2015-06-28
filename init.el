@@ -1,5 +1,3 @@
-;; ======================================================
-
 ;; Disable splash screen
 (setq inhibit-splash-screen t)
 
@@ -9,25 +7,18 @@
 ;; Enable copy & paste between emacs and other apps.
 (setq x-select-enable-clipboard t)
 
+;; Backup directory
+(setq backup-directory-alist `(("." . "~/.saves")))
+
 ;; Display line numbers
 (global-linum-mode t)
 (setq linum-format "  %d ")
 
-;; Save backup files to temp directory
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+;; Hide menu bar
+(menu-bar-mode -1)
 
 ;; Don't wrap long lines.
 (set-default 'truncate-lines t)
-
-;; Hide file menu
-(menu-bar-mode -1)
-
-;; ido mode
-(require 'ido)
-(ido-mode t)
 
 ;; Paren match highlighting
 (show-paren-mode 1)
@@ -41,57 +32,17 @@
 ;; Remove extra whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; GUI only settings
-(when window-system
-  (tool-bar-mode 0)
-  (load-theme 'dichromacy t))
+;; ido mode
+(require 'ido)
+(ido-mode t)
 
-;; Linux only settings
-(when (eq window-system 'x)
-  (add-to-list 'default-frame-alist
-               '(font . "DejaVu Sans Mono-10")))
-
-;; Windows only settings
-(when (eq window-system 'w32)
-  (server-start)
-  (set-face-font 'default "Consolas-10")
-  (setenv "PATH"
-          (concat
-           "C:\\MinGW\\msys\\1.0\\bin;"
-           (getenv "PATH"))))
-
-;; OSX only settings
-(when (eq window-system 'ns)
-  (set-default-font "Menlo-13"))
-
-;; Terminal only settings
-(when (eq window-system nil)
-  (load-theme 'misterioso t))
-
-;; Treat ActionScript the same as JavaScript
-(add-to-list 'auto-mode-alist '("\\.as\\'" . javascript-mode))
-
-;; Markdown mode
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; Function that copies path of current buffer to clipboard
-(defun copy-path ()
-  "Copies the current file's full path to the clipboard."
-  (interactive)
-  (when buffer-file-name
-    (kill-new buffer-file-name)
-    (message buffer-file-name)))
-
-;; Melpa package repository
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
-(package-initialize)
-
-;; Projectile support for projects
-(require 'projectile)
-(projectile-global-mode)
-
-;; Helm completion for Projectile
-(helm-projectile-on)
-(helm-autoresize-mode)
+;; Additional config files
+(add-to-list 'load-path "~/.emacs.d/init-files/")
+(load-library "init-terminal")
+(load-library "init-gui")
+(load-library "init-osx")
+(load-library "init-windows")
+(load-library "init-linux")
+(load-library "init-packages")
+(load-library "init-functions")
+(load-library "init-filetypes")
