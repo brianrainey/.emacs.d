@@ -40,9 +40,6 @@
 (setq c-basic-indent 2)
 (setq js-indent-level 2)
 
-;; Remove extra whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; ido mode
 (require 'ido)
 (ido-mode t)

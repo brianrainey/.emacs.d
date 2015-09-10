@@ -6,6 +6,7 @@ url/*
 eshell/*
 packages/*
 server/*
+tramp
 %backup%~
 projectile-bookmarks.eld
 projectile.cache
