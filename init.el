@@ -31,6 +31,9 @@
 ;; Don't wrap long lines.
 (set-default 'truncate-lines t)
 
+;; Make all prompts y/n rather than yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Paren match highlighting
 (show-paren-mode 1)
 
