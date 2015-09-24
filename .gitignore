@@ -12,3 +12,4 @@ projectile-bookmarks.eld
 projectile.cache
 bookmarks
 ido.last
+init-files/environment-variables.el

@@ -1,10 +1,11 @@
+;; Get environment variable for proxy server
+(load-library "environment-variables")
+
+;; Proxy defined in environment-variables.el
+(when (not (null ev-proxy-server))
+  (setq url-proxy-services '("http" . ev-proxy-server)))
+
 ;; Melpa package repository
-
-;; If the OS has an environment variable for the proxy server, use it.
-(let '(proxy (getenv "HTTP_PROXY"))
-  (when (not (null proxy))
-    (setq url-proxy-services '("http" . proxy))))
-
 (require 'package)
 (add-to-list 'package-archives
   '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
