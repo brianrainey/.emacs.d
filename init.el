@@ -2,12 +2,12 @@
 (add-to-list 'load-path "~/.emacs.d/init-files/")
 (load-library "init-terminal")
 (load-library "init-gui")
-(load-library "init-osx")
-(load-library "init-windows")
-(load-library "init-linux")
 (load-library "init-packages")
 (load-library "init-functions")
 (load-library "init-filetypes")
+(load-library "init-osx")
+(load-library "init-windows")
+(load-library "init-linux")
 
 ;; Disable splash screen
 (setq inhibit-splash-screen t)
